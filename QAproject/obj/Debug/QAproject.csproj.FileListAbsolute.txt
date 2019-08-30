@@ -25,3 +25,17 @@ C:\Users\David\Desktop\QA\QA-project-group-CDR\QAproject\obj\Debug\QAproject.csp
 C:\Users\David\Desktop\QA\QA-project-group-CDR\QAproject\obj\Debug\QAproject.exe
 C:\Users\David\Desktop\QA\QA-project-group-CDR\QAproject\obj\Debug\QAproject.pdb
 C:\Users\David\Desktop\QA\QA-project-group-CDR\QAproject\obj\Debug\QAproject.Login.resources
+D:\INTEC\QA\QA-project-group-CDR\QAproject\bin\Debug\QAproject.exe.config
+D:\INTEC\QA\QA-project-group-CDR\QAproject\bin\Debug\QAproject.exe
+D:\INTEC\QA\QA-project-group-CDR\QAproject\bin\Debug\QAproject.pdb
+D:\INTEC\QA\QA-project-group-CDR\QAproject\bin\Debug\MaterialSkin.dll
+D:\INTEC\QA\QA-project-group-CDR\QAproject\obj\Debug\QAproject.csprojAssemblyReference.cache
+D:\INTEC\QA\QA-project-group-CDR\QAproject\obj\Debug\QAproject.Form1.resources
+D:\INTEC\QA\QA-project-group-CDR\QAproject\obj\Debug\QAproject.Login.resources
+D:\INTEC\QA\QA-project-group-CDR\QAproject\obj\Debug\QAproject.Material.resources
+D:\INTEC\QA\QA-project-group-CDR\QAproject\obj\Debug\QAproject.Properties.Resources.resources
+D:\INTEC\QA\QA-project-group-CDR\QAproject\obj\Debug\QAproject.csproj.GenerateResource.cache
+D:\INTEC\QA\QA-project-group-CDR\QAproject\obj\Debug\QAproject.csproj.CoreCompileInputs.cache
+D:\INTEC\QA\QA-project-group-CDR\QAproject\obj\Debug\QAproject.csproj.CopyComplete
+D:\INTEC\QA\QA-project-group-CDR\QAproject\obj\Debug\QAproject.exe
+D:\INTEC\QA\QA-project-group-CDR\QAproject\obj\Debug\QAproject.pdb

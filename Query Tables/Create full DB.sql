@@ -1,0 +1,74 @@
+/****** Object:  Table [dbo].[Item]    Script Date: 8/30/2019 12:06:55 AM ******/
+drop table Item
+drop table Proveedor
+drop table [User]
+SET ANSI_NULLS ON
+GO
+
+SET QUOTED_IDENTIFIER ON
+GO
+
+CREATE TABLE [dbo].[Proveedor](
+	[Id_Proveedor] [int] NOT NULL,
+	[Nombre] [varchar](50) NOT NULL,
+	[Direccion] [varchar](80) NULL,
+	[Empresa] [varchar](50) NOT NULL,
+ CONSTRAINT [PK_Proveedor] PRIMARY KEY CLUSTERED 
+(
+	[Id_Proveedor] ASC
+)WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON) ON [PRIMARY]
+) ON [PRIMARY]
+GO
+
+SET ANSI_NULLS ON
+GO
+
+SET QUOTED_IDENTIFIER ON
+GO
+
+CREATE TABLE [dbo].[Item](
+	[Id_Item] [int] IDENTITY(1,1) NOT NULL,
+	[Item] [varchar](50) NOT NULL,
+	[count] [int] NOT NULL,
+	[Id_Proveedor] [int] NOT NULL,
+ CONSTRAINT [PK_Item] PRIMARY KEY CLUSTERED 
+(
+	[Id_Item] ASC
+)WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON) ON [PRIMARY]
+) ON [PRIMARY]
+GO
+
+ALTER TABLE [dbo].[Item]  WITH CHECK ADD  CONSTRAINT [FK_Item_Item] FOREIGN KEY([Id_Item])
+REFERENCES [dbo].[Item] ([Id_Item])
+GO
+
+ALTER TABLE [dbo].[Item] CHECK CONSTRAINT [FK_Item_Item]
+GO
+
+ALTER TABLE [dbo].[Item]  WITH CHECK ADD  CONSTRAINT [FK_Item_Proveedor] FOREIGN KEY([Id_Proveedor])
+REFERENCES [dbo].[Proveedor] ([Id_Proveedor]) ON DELETE CASCADE
+GO
+
+ALTER TABLE [dbo].[Item] CHECK CONSTRAINT [FK_Item_Proveedor]
+GO
+
+
+SET ANSI_NULLS ON
+GO
+
+SET QUOTED_IDENTIFIER ON
+GO
+
+CREATE TABLE [dbo].[User](
+	[Id_User] [int] IDENTITY(1,1) NOT NULL,
+	[Nombre] [varchar](50) NOT NULL,
+	[Password] [varchar](50) NULL,
+	[Tipo] [varchar](50) NOT NULL,
+ CONSTRAINT [PK_User] PRIMARY KEY CLUSTERED 
+(
+	[Id_User] ASC
+)WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON) ON [PRIMARY]
+) ON [PRIMARY]
+GO
+
+

@@ -22,7 +22,7 @@ namespace QAproject
             InitializeComponent();
             MaterialSkinManager MaterialSkinControl = MaterialSkinManager.Instance;
             MaterialSkinControl.AddFormToManage(this);
-            MaterialSkinControl.Theme = MaterialSkinManager.Themes.DARK;
+            MaterialSkinControl.Theme = MaterialSkinManager.Themes.LIGHT;
             MaterialSkinControl.ColorScheme = new ColorScheme(
                 primary: Primary.Blue400, darkPrimary: Primary.Blue500,
                 lightPrimary: Primary.Blue300, accent: Accent.LightBlue200,
