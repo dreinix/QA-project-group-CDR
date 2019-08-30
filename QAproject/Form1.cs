@@ -21,5 +21,12 @@ namespace QAproject
         {
 
         }
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+            Material a = new Material();
+            a.Show();
+            this.Hide();
+        }
     }
 }
