@@ -39,7 +39,7 @@ namespace QAproject.Data
                 catch (Exception ex) { MessageBox.Show(ex.Message); };
             }
             public void Close() => con.Close();
-            public List<SqlDataReader> Buscar(string _query)
+            /*public List<SqlDataReader> Buscar(string _query)
             {
                 Open();
                 List<SqlDataReader> returnList = new List<SqlDataReader>();
@@ -54,6 +54,30 @@ namespace QAproject.Data
                     return returnList;
                 }
 
+            }*/
+
+            public List<string> Buscar(string _query)
+            {
+                Open();
+                List<string> returnList = new List<string>();
+                try
+                {
+                    using(cmd = new SqlCommand(_query, con))
+                    {
+                        SqlDataReader reader = cmd.ExecuteReader();
+                        while (reader.Read())
+                        {
+                            returnList.Add(reader[0].ToString());
+                        }
+                    }
+                }catch(Exception ex)
+                {
+                    Console.WriteLine(ex.Message);
+                    MessageBox.Show("Error al recolectar la información");
+                }
+                Close();
+                return returnList;
+                
             }
             public List<string[]> Buscar(string _query, string[] _parameters, string[] _elements, int _elementsReturned)
             {
@@ -85,6 +109,7 @@ namespace QAproject.Data
                 catch (Exception) { return returnList; }
 
             }
+            
             public bool Buscar(string _query, string[] _parameters, string[] _word)
             {
                 try

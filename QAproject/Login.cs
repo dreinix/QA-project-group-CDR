@@ -16,7 +16,9 @@ namespace QAproject
     {
         public Login()
         {
+
             InitializeComponent();
+           
         }
 
         private void pictureBox1_Click(object sender, EventArgs e)
@@ -26,20 +28,20 @@ namespace QAproject
 
         private void materialSingleLineTextField1_Click(object sender, EventArgs e)
         {
-            if (TxtUserName.Text == "Nombre Usuario")
+            if (TxtUserName.Text == "User Name")
                 TxtUserName.Text = "";
 
         }
 
         private void materialSingleLineTextField2_Click(object sender, EventArgs e)
         {
-            if (TxtPsw.Text == "Contraseña")
+            if (TxtPsw.Text == "Password")
             {
                 TxtPsw.Text = "";
                 TxtPsw.PasswordChar = '*';
             }
         }
-        private void InisiarSesion()
+        private void IniciarSesion()
         {
             ControlDB DBControl = new ControlDB(ControlDB.cPath, "dbQA.mdf");
             string[] parameters = { "@id", "@pass" };
@@ -60,11 +62,13 @@ namespace QAproject
             {
                 MessageBox.Show("Usuario o contraseña inválidos");
                 TxtUserName.Focus();
+                TxtPsw.Text = "";
             }
         }
         private void materialRaisedButton2_Click(object sender, EventArgs e)
         {
-            InisiarSesion();
+            
+            IniciarSesion();
             /*
             Main a = new Main();
 
@@ -103,25 +107,35 @@ namespace QAproject
             if (TxtPsw.Text == "")
             {
                 TxtPsw.PasswordChar = '\0';
-                TxtPsw.Text = "Contraseña";
-
+                TxtPsw.Text = "Password";
             }
         }
 
         private void materialSingleLineTextField1_Leave(object sender, EventArgs e)
         {
             if (TxtUserName.Text == "")
-                TxtUserName.Text = "Nombre Usuario";
+                TxtUserName.Text = "User Name";
+            if(TxtUserName.Text == "master")
+            {
+                MessageBox.Show("Desbloqueo de opciones maestras", "Google LLC", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                materialRaisedButton1.Visible = true;
+                TxtUserName.Text = "User Name";
+            }
         }
 
         private void pictureBox2_Click(object sender, EventArgs e)
         {
-            MessageBox.Show("Actualmente no se encuentra en funcionamiento, esta es una version de prueba usuario: admin & password: 123", "Google LLC", MessageBoxButtons.OK,MessageBoxIcon.Information);
+            MessageBox.Show("Actualmente si no tienes usuario, se te llevara a crear uno", "Google LLC", MessageBoxButtons.OK,MessageBoxIcon.Information);
+            this.Hide();
+            AddUser a = new AddUser();
+            a.ShowDialog();
+            this.Close();
         }
 
         private void Login_Load(object sender, EventArgs e)
         {
-
+            materialRaisedButton1.Visible = false;
+            materialRaisedButton2.Visible = false;
         }
 
         private void MaterialSingleLineTextField2_KeyPress(object sender, KeyPressEventArgs e)
@@ -133,7 +147,7 @@ namespace QAproject
         {
             if(Keys.Enter == e.KeyCode)
             {
-                InisiarSesion();
+                IniciarSesion();
                 /*
                 Main a = new Main();
                 a.ShowDialog();
@@ -147,7 +161,7 @@ namespace QAproject
                 TxtPsw.Focus();
         }
 
-        private void MaterialRaisedButton1_Click(object sender, EventArgs e)
+        private void devAdd()
         {
             try
             {
@@ -159,16 +173,16 @@ namespace QAproject
                     return;
                 }
                 ControlDB DBControl = new ControlDB(ControlDB.cPath, "dbQA.mdf");
-                string[] parameters = { "@userName","@Name", "@pass", "cat" };
-                string[] elements = { TxtUserName.Text,"No One" ,TxtPsw.Text, "Dev" };
-                if(DBControl.Buscar("Select * from [User] where Username=@userName", parameters,elements))
+                string[] parameters = { "@name", "@Username", "@pass", "cat" };
+                string[] elements =  {"No One", TxtUserName.Text,TxtPsw.Text, "Dev" };
+                if (DBControl.Buscar("Select * from [User] where Username=@userName", parameters, elements))
                 {
                     MessageBox.Show("El usuario ya existe");
                     TxtUserName.Clear();
                     TxtPsw.Clear();
                     return;
                 }
-                if (DBControl.Insertar("insert into [User] values(@userName,@Name,@pass,@cat)", parameters, elements))
+                if (DBControl.Insertar("insert into [User] values(@Name,@userName,@pass,@cat)", parameters, elements))
                 {   /*
                     string[] para = { "@id" };
                     string[] val = { System.Security.Principal.WindowsIdentity.GetCurrent().Name.ToString() };
@@ -190,6 +204,30 @@ namespace QAproject
             {
                 MessageBox.Show("Por favor, verifique los datos");
             }
+        }
+
+        private void MaterialRaisedButton1_Click(object sender, EventArgs e)
+        {
+            devAdd();
+        }
+
+        private void TxtPsw_Leave(object sender, EventArgs e)
+        {
+             if (TxtPsw.Text == "")
+            {
+                TxtPsw.PasswordChar = '\0';
+                TxtPsw.Text = "Password";
+            }
+        }
+
+        private void materialRaisedButton2_Click_1(object sender, EventArgs e)
+        {
+
+        }
+
+        private void materialRaisedButton3_Click(object sender, EventArgs e)
+        {
+            devAdd();
         }
     }
 }

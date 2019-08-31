@@ -16,7 +16,6 @@ C:\Users\David\Desktop\QA\QA-project-group-CDR\QAproject\bin\Debug\QAproject.exe
 C:\Users\David\Desktop\QA\QA-project-group-CDR\QAproject\bin\Debug\QAproject.pdb
 C:\Users\David\Desktop\QA\QA-project-group-CDR\QAproject\bin\Debug\MaterialSkin.dll
 C:\Users\David\Desktop\QA\QA-project-group-CDR\QAproject\obj\Debug\QAproject.csprojAssemblyReference.cache
-C:\Users\David\Desktop\QA\QA-project-group-CDR\QAproject\obj\Debug\QAproject.Form1.resources
 C:\Users\David\Desktop\QA\QA-project-group-CDR\QAproject\obj\Debug\QAproject.Material.resources
 C:\Users\David\Desktop\QA\QA-project-group-CDR\QAproject\obj\Debug\QAproject.Properties.Resources.resources
 C:\Users\David\Desktop\QA\QA-project-group-CDR\QAproject\obj\Debug\QAproject.csproj.GenerateResource.cache
@@ -42,3 +41,33 @@ D:\INTEC\QA\QA-project-group-CDR\QAproject\obj\Debug\QAproject.Main.resources
 D:\INTEC\QA\QA-project-group-CDR\QAproject\obj\Debug\QAproject.Stock.CreateStock.resources
 D:\INTEC\QA\QA-project-group-CDR\QAproject\bin\Debug\Data\dbQA.mdf
 D:\INTEC\QA\QA-project-group-CDR\QAproject\bin\Debug\Data\dbQA_log.ldf
+C:\Users\David\Desktop\QA\QA-project-group-CDR\QAproject\bin\Debug\Data\dbQA.mdf
+C:\Users\David\Desktop\QA\QA-project-group-CDR\QAproject\bin\Debug\Data\dbQA_log.ldf
+C:\Users\David\Desktop\QA\QA-project-group-CDR\QAproject\obj\Debug\QAproject.Main.resources
+C:\Users\David\Desktop\QA\QA-project-group-CDR\QAproject\obj\Debug\QAproject.Stock.CreateStock.resources
+C:\Users\David\Desktop\QA\QA-project-group-CDR\QAproject\obj\Debug\QAproject.AddItem.resources
+C:\Users\David\Desktop\QA\QA-project-group-CDR\QAproject\obj\Debug\QAproject.AddProvider.resources
+C:\Users\David\Desktop\QA\QA-project-group-CDR\QAproject\obj\Debug\QAproject.AddUser.resources
+C:\Users\David\Desktop\QA\QA-project-group-CDR\QAproject\obj\Debug\QAproject.SearchEntity.resources
+C:\Users\David\Desktop\QA\QA-project-group-CDR\QAproject\obj\Debug\QAproject.ChangeStock.resources
+C:\Users\USER\Desktop\intec stuff\QA\QA-project-group-CDR\QAproject\bin\Debug\Data\dbQA.mdf
+C:\Users\USER\Desktop\intec stuff\QA\QA-project-group-CDR\QAproject\bin\Debug\Data\dbQA_log.ldf
+C:\Users\USER\Desktop\intec stuff\QA\QA-project-group-CDR\QAproject\bin\Debug\QAproject.exe.config
+C:\Users\USER\Desktop\intec stuff\QA\QA-project-group-CDR\QAproject\bin\Debug\QAproject.exe
+C:\Users\USER\Desktop\intec stuff\QA\QA-project-group-CDR\QAproject\bin\Debug\QAproject.pdb
+C:\Users\USER\Desktop\intec stuff\QA\QA-project-group-CDR\QAproject\bin\Debug\MaterialSkin.dll
+C:\Users\USER\Desktop\intec stuff\QA\QA-project-group-CDR\QAproject\obj\Debug\QAproject.AddItem.resources
+C:\Users\USER\Desktop\intec stuff\QA\QA-project-group-CDR\QAproject\obj\Debug\QAproject.AddProvider.resources
+C:\Users\USER\Desktop\intec stuff\QA\QA-project-group-CDR\QAproject\obj\Debug\QAproject.AddUser.resources
+C:\Users\USER\Desktop\intec stuff\QA\QA-project-group-CDR\QAproject\obj\Debug\QAproject.ChangeStock.resources
+C:\Users\USER\Desktop\intec stuff\QA\QA-project-group-CDR\QAproject\obj\Debug\QAproject.Main.resources
+C:\Users\USER\Desktop\intec stuff\QA\QA-project-group-CDR\QAproject\obj\Debug\QAproject.Login.resources
+C:\Users\USER\Desktop\intec stuff\QA\QA-project-group-CDR\QAproject\obj\Debug\QAproject.Material.resources
+C:\Users\USER\Desktop\intec stuff\QA\QA-project-group-CDR\QAproject\obj\Debug\QAproject.Properties.Resources.resources
+C:\Users\USER\Desktop\intec stuff\QA\QA-project-group-CDR\QAproject\obj\Debug\QAproject.SearchEntity.resources
+C:\Users\USER\Desktop\intec stuff\QA\QA-project-group-CDR\QAproject\obj\Debug\QAproject.csproj.GenerateResource.cache
+C:\Users\USER\Desktop\intec stuff\QA\QA-project-group-CDR\QAproject\obj\Debug\QAproject.csproj.CoreCompileInputs.cache
+C:\Users\USER\Desktop\intec stuff\QA\QA-project-group-CDR\QAproject\obj\Debug\QAproject.csproj.CopyComplete
+C:\Users\USER\Desktop\intec stuff\QA\QA-project-group-CDR\QAproject\obj\Debug\QAproject.exe
+C:\Users\USER\Desktop\intec stuff\QA\QA-project-group-CDR\QAproject\obj\Debug\QAproject.pdb
+C:\Users\USER\Desktop\intec stuff\QA\QA-project-group-CDR\QAproject\obj\Debug\QAproject.csprojAssemblyReference.cache
