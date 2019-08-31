@@ -71,5 +71,10 @@ namespace QAproject
                 newTextBox.Focus();
             }
         }
+
+        private void ProveedorTextBox_Click(object sender, EventArgs e)
+        {
+
+        }
     }
 }

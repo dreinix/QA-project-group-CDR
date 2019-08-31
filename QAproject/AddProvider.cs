@@ -1,4 +1,5 @@
-﻿using System;
+﻿using QAproject.Data;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -19,23 +20,23 @@ namespace QAproject
 
         private void AddProvider_Load(object sender, EventArgs e)
         {
-            nameTextBox.BackColor = Color.White;
-            directionTextbox.BackColor = Color.White;
-            companyTextbox.BackColor = Color.White;
-            nameTextBox.Focus();
+            TxtName.BackColor = Color.White;
+            TxtDirection.BackColor = Color.White;
+            TxtCompany.BackColor = Color.White;
+            TxtName.Focus();
         }
 
         private void nameTextBox_KeyDown(object sender, KeyEventArgs e)
         {
             if (Keys.Enter == e.KeyCode)
-                directionTextbox.Focus();
+                TxtDirection.Focus();
            
         }
 
         private void directionTextbox_KeyDown(object sender, KeyEventArgs e)
         {
             if (Keys.Enter == e.KeyCode)
-                companyTextbox.Focus();
+                TxtCompany.Focus();
         }
 
         private void companyTextbox_KeyDown(object sender, KeyEventArgs e)
@@ -43,6 +44,37 @@ namespace QAproject
             /*
             if (Keys.Enter == e.KeyCode)
               */  
+        }
+
+        private void materialRaisedButton1_Click(object sender, EventArgs e)
+        {
+            ControlDB control = new ControlDB(ControlDB.cPath, "dbQA.mdf");
+
+            try
+            {
+                string[] parameters = { "@name", "@dir", "@comp" };
+                string[] elements = { TxtName.Text, TxtDirection.Text, TxtCompany.Text };
+                if (!control.Insertar("insert into [Proveedor] values(@name,@dir,@comp)", parameters, elements))
+                {
+                    MessageBox.Show("EL proovedor no pudo ser agregado", "Google LLC", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+                    return;
+                }
+
+
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+            };
+            // Paso despues de agregar
+
+            TxtName.Clear();
+            TxtDirection.Clear();
+            TxtCompany.Clear();
+            MessageBox.Show("Proveedor Agregado Correctamente", "Google LLC", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+            TxtName.Focus();
+
+            // Fin
         }
     }
 }

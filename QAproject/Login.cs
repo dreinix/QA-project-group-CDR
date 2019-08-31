@@ -161,7 +161,7 @@ namespace QAproject
                 TxtPsw.Focus();
         }
 
-        private void MaterialRaisedButton1_Click(object sender, EventArgs e)
+        private void devAdd()
         {
             try
             {
@@ -173,16 +173,16 @@ namespace QAproject
                     return;
                 }
                 ControlDB DBControl = new ControlDB(ControlDB.cPath, "dbQA.mdf");
-                string[] parameters = { "@userName","@Name", "@pass", "cat" };
-                string[] elements = { TxtUserName.Text,"No One" ,TxtPsw.Text, "Dev" };
-                if(DBControl.Buscar("Select * from [User] where Username=@userName", parameters,elements))
+                string[] parameters = { "@name", "@Username", "@pass", "cat" };
+                string[] elements =  {"No One", TxtUserName.Text,TxtPsw.Text, "Dev" };
+                if (DBControl.Buscar("Select * from [User] where Username=@userName", parameters, elements))
                 {
                     MessageBox.Show("El usuario ya existe");
                     TxtUserName.Clear();
                     TxtPsw.Clear();
                     return;
                 }
-                if (DBControl.Insertar("insert into [User] values(@userName,@Name,@pass,@cat)", parameters, elements))
+                if (DBControl.Insertar("insert into [User] values(@Name,@userName,@pass,@cat)", parameters, elements))
                 {   /*
                     string[] para = { "@id" };
                     string[] val = { System.Security.Principal.WindowsIdentity.GetCurrent().Name.ToString() };
@@ -206,6 +206,11 @@ namespace QAproject
             }
         }
 
+        private void MaterialRaisedButton1_Click(object sender, EventArgs e)
+        {
+            devAdd();
+        }
+
         private void TxtPsw_Leave(object sender, EventArgs e)
         {
              if (TxtPsw.Text == "")
@@ -213,6 +218,16 @@ namespace QAproject
                 TxtPsw.PasswordChar = '\0';
                 TxtPsw.Text = "Password";
             }
+        }
+
+        private void materialRaisedButton2_Click_1(object sender, EventArgs e)
+        {
+
+        }
+
+        private void materialRaisedButton3_Click(object sender, EventArgs e)
+        {
+            devAdd();
         }
     }
 }

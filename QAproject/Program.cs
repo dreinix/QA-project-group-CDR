@@ -16,7 +16,7 @@ namespace QAproject
         {
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
-            Application.Run(new ChangeStock());
+            Application.Run(new Login());
         }
     }
 }

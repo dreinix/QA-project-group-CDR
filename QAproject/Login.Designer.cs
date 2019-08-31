@@ -36,6 +36,7 @@
             this.pictureBox2 = new System.Windows.Forms.PictureBox();
             this.materialRaisedButton1 = new MaterialSkin.Controls.MaterialRaisedButton();
             this.materialRaisedButton2 = new MaterialSkin.Controls.MaterialRaisedButton();
+            this.materialRaisedButton3 = new MaterialSkin.Controls.MaterialRaisedButton();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).BeginInit();
             this.SuspendLayout();
@@ -46,11 +47,12 @@
             this.BTLogIn.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
             this.BTLogIn.Depth = 0;
             this.BTLogIn.Icon = null;
-            this.BTLogIn.Location = new System.Drawing.Point(238, 402);
+            this.BTLogIn.Location = new System.Drawing.Point(317, 495);
+            this.BTLogIn.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.BTLogIn.MouseState = MaterialSkin.MouseState.HOVER;
             this.BTLogIn.Name = "BTLogIn";
             this.BTLogIn.Primary = true;
-            this.BTLogIn.Size = new System.Drawing.Size(129, 36);
+            this.BTLogIn.Size = new System.Drawing.Size(158, 36);
             this.BTLogIn.TabIndex = 1;
             this.BTLogIn.Text = "Iniciar Sección";
             this.BTLogIn.UseVisualStyleBackColor = true;
@@ -60,9 +62,10 @@
             // 
             this.pictureBox1.ErrorImage = ((System.Drawing.Image)(resources.GetObject("pictureBox1.ErrorImage")));
             this.pictureBox1.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox1.Image")));
-            this.pictureBox1.Location = new System.Drawing.Point(75, 73);
+            this.pictureBox1.Location = new System.Drawing.Point(100, 90);
+            this.pictureBox1.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.pictureBox1.Name = "pictureBox1";
-            this.pictureBox1.Size = new System.Drawing.Size(423, 206);
+            this.pictureBox1.Size = new System.Drawing.Size(564, 254);
             this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
             this.pictureBox1.TabIndex = 2;
             this.pictureBox1.TabStop = false;
@@ -74,7 +77,8 @@
             this.TxtUserName.Depth = 0;
             this.TxtUserName.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.TxtUserName.Hint = "";
-            this.TxtUserName.Location = new System.Drawing.Point(159, 310);
+            this.TxtUserName.Location = new System.Drawing.Point(212, 382);
+            this.TxtUserName.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.TxtUserName.MaxLength = 32767;
             this.TxtUserName.MouseState = MaterialSkin.MouseState.HOVER;
             this.TxtUserName.Name = "TxtUserName";
@@ -82,7 +86,7 @@
             this.TxtUserName.SelectedText = "";
             this.TxtUserName.SelectionLength = 0;
             this.TxtUserName.SelectionStart = 0;
-            this.TxtUserName.Size = new System.Drawing.Size(274, 23);
+            this.TxtUserName.Size = new System.Drawing.Size(365, 28);
             this.TxtUserName.TabIndex = 3;
             this.TxtUserName.TabStop = false;
             this.TxtUserName.Text = "User Name";
@@ -96,7 +100,8 @@
             this.TxtPsw.Depth = 0;
             this.TxtPsw.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.TxtPsw.Hint = "";
-            this.TxtPsw.Location = new System.Drawing.Point(159, 360);
+            this.TxtPsw.Location = new System.Drawing.Point(212, 443);
+            this.TxtPsw.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.TxtPsw.MaxLength = 32767;
             this.TxtPsw.MouseState = MaterialSkin.MouseState.HOVER;
             this.TxtPsw.Name = "TxtPsw";
@@ -104,7 +109,7 @@
             this.TxtPsw.SelectedText = "";
             this.TxtPsw.SelectionLength = 0;
             this.TxtPsw.SelectionStart = 0;
-            this.TxtPsw.Size = new System.Drawing.Size(274, 23);
+            this.TxtPsw.Size = new System.Drawing.Size(365, 28);
             this.TxtPsw.TabIndex = 4;
             this.TxtPsw.TabStop = false;
             this.TxtPsw.UseSystemPasswordChar = true;
@@ -116,9 +121,10 @@
             // pictureBox2
             // 
             this.pictureBox2.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox2.Image")));
-            this.pictureBox2.Location = new System.Drawing.Point(532, 73);
+            this.pictureBox2.Location = new System.Drawing.Point(709, 90);
+            this.pictureBox2.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.pictureBox2.Name = "pictureBox2";
-            this.pictureBox2.Size = new System.Drawing.Size(35, 35);
+            this.pictureBox2.Size = new System.Drawing.Size(47, 43);
             this.pictureBox2.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
             this.pictureBox2.TabIndex = 5;
             this.pictureBox2.TabStop = false;
@@ -130,11 +136,12 @@
             this.materialRaisedButton1.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
             this.materialRaisedButton1.Depth = 0;
             this.materialRaisedButton1.Icon = null;
-            this.materialRaisedButton1.Location = new System.Drawing.Point(419, 402);
+            this.materialRaisedButton1.Location = new System.Drawing.Point(500, 435);
+            this.materialRaisedButton1.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.materialRaisedButton1.MouseState = MaterialSkin.MouseState.HOVER;
             this.materialRaisedButton1.Name = "materialRaisedButton1";
             this.materialRaisedButton1.Primary = true;
-            this.materialRaisedButton1.Size = new System.Drawing.Size(79, 36);
+            this.materialRaisedButton1.Size = new System.Drawing.Size(95, 36);
             this.materialRaisedButton1.TabIndex = 6;
             this.materialRaisedButton1.Text = "DevTest";
             this.materialRaisedButton1.UseVisualStyleBackColor = true;
@@ -146,21 +153,41 @@
             this.materialRaisedButton2.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
             this.materialRaisedButton2.Depth = 0;
             this.materialRaisedButton2.Icon = null;
-            this.materialRaisedButton2.Location = new System.Drawing.Point(105, 402);
+            this.materialRaisedButton2.Location = new System.Drawing.Point(140, 495);
+            this.materialRaisedButton2.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.materialRaisedButton2.MouseState = MaterialSkin.MouseState.HOVER;
             this.materialRaisedButton2.Name = "materialRaisedButton2";
             this.materialRaisedButton2.Primary = true;
-            this.materialRaisedButton2.Size = new System.Drawing.Size(93, 36);
+            this.materialRaisedButton2.Size = new System.Drawing.Size(113, 36);
             this.materialRaisedButton2.TabIndex = 7;
             this.materialRaisedButton2.Text = "Registrar";
             this.materialRaisedButton2.UseVisualStyleBackColor = true;
+            this.materialRaisedButton2.Click += new System.EventHandler(this.materialRaisedButton2_Click_1);
+            // 
+            // materialRaisedButton3
+            // 
+            this.materialRaisedButton3.AutoSize = true;
+            this.materialRaisedButton3.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
+            this.materialRaisedButton3.Depth = 0;
+            this.materialRaisedButton3.Icon = null;
+            this.materialRaisedButton3.Location = new System.Drawing.Point(500, 399);
+            this.materialRaisedButton3.Margin = new System.Windows.Forms.Padding(4);
+            this.materialRaisedButton3.MouseState = MaterialSkin.MouseState.HOVER;
+            this.materialRaisedButton3.Name = "materialRaisedButton3";
+            this.materialRaisedButton3.Primary = true;
+            this.materialRaisedButton3.Size = new System.Drawing.Size(95, 36);
+            this.materialRaisedButton3.TabIndex = 8;
+            this.materialRaisedButton3.Text = "DevTest";
+            this.materialRaisedButton3.UseVisualStyleBackColor = true;
+            this.materialRaisedButton3.Click += new System.EventHandler(this.materialRaisedButton3_Click);
             // 
             // Login
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
-            this.ClientSize = new System.Drawing.Size(579, 450);
+            this.ClientSize = new System.Drawing.Size(772, 554);
+            this.Controls.Add(this.materialRaisedButton3);
             this.Controls.Add(this.materialRaisedButton2);
             this.Controls.Add(this.materialRaisedButton1);
             this.Controls.Add(this.pictureBox2);
@@ -168,6 +195,7 @@
             this.Controls.Add(this.TxtUserName);
             this.Controls.Add(this.pictureBox1);
             this.Controls.Add(this.BTLogIn);
+            this.Margin = new System.Windows.Forms.Padding(7, 6, 7, 6);
             this.MaximizeBox = false;
             this.Name = "Login";
             this.Text = "Google Sing-in";
@@ -187,5 +215,6 @@
         private System.Windows.Forms.PictureBox pictureBox2;
         private MaterialSkin.Controls.MaterialRaisedButton materialRaisedButton1;
         private MaterialSkin.Controls.MaterialRaisedButton materialRaisedButton2;
+        private MaterialSkin.Controls.MaterialRaisedButton materialRaisedButton3;
     }
 }
