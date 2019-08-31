@@ -10,11 +10,26 @@ using System.Windows.Forms;
 
 namespace QAproject
 {
-    public partial class Form1 : Material
+    public partial class Main : Material
     {
-        public Form1()
+        string userCat;
+        public Main(string _userCat)
         {
             InitializeComponent();
+            userCat = _userCat;
+
+            if (userCat == "Adm" || userCat == "Dev")
+            {
+                MessageBox.Show("Admin");
+
+            }
+            else
+            {
+                MessageBox.Show("Cont");
+            }
+            this.Sizable = true;
+            this.MinimizeBox = false;
+            this.MaximizeBox = false;
         }
 
         private void Form1_Load(object sender, EventArgs e)

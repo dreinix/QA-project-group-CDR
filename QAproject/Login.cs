@@ -1,4 +1,5 @@
-﻿using System;
+﻿using QAproject.Data;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -38,11 +39,34 @@ namespace QAproject
                 TxtPsw.PasswordChar = '*';
             }
         }
-
-
+        private void InisiarSesion()
+        {
+            ControlDB DBControl = new ControlDB(ControlDB.cPath, "dbQA.mdf");
+            string[] parameters = { "@id", "@pass" };
+            string[] elements = { TxtUserName.Text, TxtPsw.Text };
+            TxtUserName.Clear();
+            TxtPsw.Clear();
+            List<string> admins = new List<string> { "Adm", "Dev" };
+            if (DBControl.Buscar("select * from [User] where [Username]=@id and [Password]=@pass", parameters, elements))
+            {
+                string cat = DBControl.BuscarElemento("select [Tipo] from [User] where [UserName]=@id and [Password]=@pass", parameters, elements);
+                Main mainPage = new Main(cat);
+                this.Hide();
+                mainPage.ShowDialog();
+                this.Show();
+                TxtUserName.Focus();
+            }
+            else
+            {
+                MessageBox.Show("Usuario o contraseña inválidos");
+                TxtUserName.Focus();
+            }
+        }
         private void materialRaisedButton2_Click(object sender, EventArgs e)
         {
-            Form1 a = new Form1();
+            InisiarSesion();
+            /*
+            Main a = new Main();
 
             if (TxtUserName.Text == "admin")
             {
@@ -70,7 +94,7 @@ namespace QAproject
                 TxtUserName.Focus();
              
             }
-
+            */
         }
 
         private void materialSingleLineTextField2_Leave(object sender, EventArgs e)
@@ -109,9 +133,11 @@ namespace QAproject
         {
             if(Keys.Enter == e.KeyCode)
             {
-                Form1 a = new Form1();
+                InisiarSesion();
+                /*
+                Main a = new Main();
                 a.ShowDialog();
-                this.Close();
+                this.Close();*/
             }
         }
 
@@ -119,6 +145,51 @@ namespace QAproject
         {
             if (Keys.Enter == e.KeyCode)
                 TxtPsw.Focus();
+        }
+
+        private void MaterialRaisedButton1_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                if (TxtPsw.Text == TxtUserName.Text)
+                {
+                    MessageBox.Show("El usuario y al contraseña no pueden ser iguales");
+                    TxtUserName.Clear();
+                    TxtPsw.Clear();
+                    return;
+                }
+                ControlDB DBControl = new ControlDB(ControlDB.cPath, "dbQA.mdf");
+                string[] parameters = { "@userName","@Name", "@pass", "cat" };
+                string[] elements = { TxtUserName.Text,"No One" ,TxtPsw.Text, "Dev" };
+                if(DBControl.Buscar("Select * from [User] where Username=@userName", parameters,elements))
+                {
+                    MessageBox.Show("El usuario ya existe");
+                    TxtUserName.Clear();
+                    TxtPsw.Clear();
+                    return;
+                }
+                if (DBControl.Insertar("insert into [User] values(@userName,@Name,@pass,@cat)", parameters, elements))
+                {   /*
+                    string[] para = { "@id" };
+                    string[] val = { System.Security.Principal.WindowsIdentity.GetCurrent().Name.ToString() };
+                    int activos = int.Parse(DBControl.BuscarElemento("select [registros] from Activos where [ID] = @id", para, val));
+                    para = new string[] { "@id", "@nums" };
+                    string[] nums = { System.Security.Principal.WindowsIdentity.GetCurrent().Name.ToString(), (++activos).ToString(), };
+                    DBControl.Insertar("update [Activos] set [registros]=@nums where [id]=@id", para, nums);
+                    */
+                    MessageBox.Show("Usuario agregado");
+                    //this.Close();
+                }
+                else
+                {
+                    MessageBox.Show("El usuario no pudo ser agregado");
+                }
+                DBControl.Close();
+            }
+            catch (Exception)
+            {
+                MessageBox.Show("Por favor, verifique los datos");
+            }
         }
     }
 }

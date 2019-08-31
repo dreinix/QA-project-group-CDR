@@ -34,6 +34,7 @@
             this.TxtUserName = new MaterialSkin.Controls.MaterialSingleLineTextField();
             this.TxtPsw = new MaterialSkin.Controls.MaterialSingleLineTextField();
             this.pictureBox2 = new System.Windows.Forms.PictureBox();
+            this.materialRaisedButton1 = new MaterialSkin.Controls.MaterialRaisedButton();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).BeginInit();
             this.SuspendLayout();
@@ -98,7 +99,7 @@
             this.TxtPsw.MaxLength = 32767;
             this.TxtPsw.MouseState = MaterialSkin.MouseState.HOVER;
             this.TxtPsw.Name = "TxtPsw";
-            this.TxtPsw.PasswordChar = '\0';
+            this.TxtPsw.PasswordChar = '*';
             this.TxtPsw.SelectedText = "";
             this.TxtPsw.SelectionLength = 0;
             this.TxtPsw.SelectionStart = 0;
@@ -106,7 +107,7 @@
             this.TxtPsw.TabIndex = 4;
             this.TxtPsw.TabStop = false;
             this.TxtPsw.Text = "Contraseña";
-            this.TxtPsw.UseSystemPasswordChar = false;
+            this.TxtPsw.UseSystemPasswordChar = true;
             this.TxtPsw.Click += new System.EventHandler(this.materialSingleLineTextField2_Click);
             this.TxtPsw.KeyDown += new System.Windows.Forms.KeyEventHandler(this.MaterialSingleLineTextField2_KeyDown);
             this.TxtPsw.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.MaterialSingleLineTextField2_KeyPress);
@@ -123,12 +124,29 @@
             this.pictureBox2.TabStop = false;
             this.pictureBox2.Click += new System.EventHandler(this.pictureBox2_Click);
             // 
+            // materialRaisedButton1
+            // 
+            this.materialRaisedButton1.AutoSize = true;
+            this.materialRaisedButton1.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
+            this.materialRaisedButton1.Depth = 0;
+            this.materialRaisedButton1.Icon = null;
+            this.materialRaisedButton1.Location = new System.Drawing.Point(531, 402);
+            this.materialRaisedButton1.MouseState = MaterialSkin.MouseState.HOVER;
+            this.materialRaisedButton1.Name = "materialRaisedButton1";
+            this.materialRaisedButton1.Primary = true;
+            this.materialRaisedButton1.Size = new System.Drawing.Size(79, 36);
+            this.materialRaisedButton1.TabIndex = 6;
+            this.materialRaisedButton1.Text = "DevTest";
+            this.materialRaisedButton1.UseVisualStyleBackColor = true;
+            this.materialRaisedButton1.Click += new System.EventHandler(this.MaterialRaisedButton1_Click);
+            // 
             // Login
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.White;
             this.ClientSize = new System.Drawing.Size(672, 450);
+            this.Controls.Add(this.materialRaisedButton1);
             this.Controls.Add(this.pictureBox2);
             this.Controls.Add(this.TxtPsw);
             this.Controls.Add(this.TxtUserName);
@@ -150,5 +168,6 @@
         private MaterialSkin.Controls.MaterialSingleLineTextField TxtUserName;
         private MaterialSkin.Controls.MaterialSingleLineTextField TxtPsw;
         private System.Windows.Forms.PictureBox pictureBox2;
+        private MaterialSkin.Controls.MaterialRaisedButton materialRaisedButton1;
     }
 }
