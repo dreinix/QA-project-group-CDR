@@ -45,13 +45,12 @@ namespace QAproject
             {
                 string[] parameters = { "@name", "@cant", "@prov"};
                 string[] elements = { TxtName.Text,NUDCant.Value.ToString(), CBProveedor.SelectedValue.ToString()};
-                if (!control.Insertar("insert into Item([Item],[count],[Id_Proveedor]) values(@name,@cant,@prov)",parameters,elements))
+                if (!control.Insertar("insert into Item values(@name,@cant,@prov)",parameters,elements))
                 {   
                     MessageBox.Show("EL Item no pudo ser agregado", "Google LLC", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
                     return;
                 }
-
-
+                
             }
             catch (Exception ex) {
                 MessageBox.Show(ex.Message);
