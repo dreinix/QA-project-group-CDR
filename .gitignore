@@ -1,0 +1,7 @@
+
+*.cache
+.vs/QAproject/v16/Server/sqlite3/storage.ide-wal
+QAproject/obj/Debug/DesignTimeResolveAssemblyReferences.cache
+.vs/QAproject/v16/Server/sqlite3/storage.ide
+.vs/QAproject/v16/.suo
+.vs/QAproject/v16/Server/sqlite3/storage.ide
