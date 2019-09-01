@@ -56,5 +56,17 @@ namespace QAproject
             AddItem itm = new AddItem();
             itm.Show();
         }
+
+        private void MaterialFlatButton3_Click(object sender, EventArgs e)
+        {
+            SearchEntity entity = new SearchEntity();
+            entity.Show();
+        }
+
+        private void MaterialFlatButton4_Click(object sender, EventArgs e)
+        {
+            AddUser addUser = new AddUser();
+            addUser.ShowDialog();
+        }
     }
 }

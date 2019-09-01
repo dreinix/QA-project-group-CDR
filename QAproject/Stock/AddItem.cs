@@ -1,4 +1,5 @@
 ﻿using QAproject.Data;
+using QAproject.Utility;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -20,21 +21,32 @@ namespace QAproject
             InitializeComponent();
         }
 
+        private List<Provider> providers = new List<Provider>();
         private void AddItem_Load(object sender, EventArgs e)
         {
+            string[] parameters = {};
+            string[] elements = {};
             TxtName.BackColor = Color.White;
             NUDCant.BackColor = Color.White;
             TxtName.Focus();
             ControlDB control = new ControlDB(ControlDB.cPath, "dbQA.mdf");
             BindingSource bs = new BindingSource();
-            List<string> dataList = control.Buscar("select [Nombre] from Proveedor");
+            List<string[]> dataList = control.Buscar("select * from Proveedor",parameters,elements,4);
             /*foreach (SqlDataReader datar in )
             {   
 
                 datar.Read();
                 dataList.Add(datar.GetValue(0).ToString());
             }*/
-            CBProveedor.DataSource = dataList;
+            List<string> ProvName = new List<string>();
+            foreach(string[] value in dataList)
+            {
+                Provider prov = new Provider(int.Parse(value[0]), value[1], value[2], value[3]);
+                providers.Add(prov);
+                CBProveedor.Items.Add(prov.Name);
+                ProvName.Add(prov.Name);
+            }
+            CBProveedor.DataSource = ProvName;
         }
 
         private void AgregarButtom_Click(object sender, EventArgs e)
@@ -44,7 +56,8 @@ namespace QAproject
             try
             {
                 string[] parameters = { "@name", "@cant", "@prov"};
-                string[] elements = { TxtName.Text,NUDCant.Value.ToString(), CBProveedor.SelectedValue.ToString()};
+                int provedor = providers[CBProveedor.SelectedIndex].ID;
+                string[] elements = { TxtName.Text,NUDCant.Value.ToString(), provedor.ToString()};
                 if (!control.Insertar("insert into Item values(@name,@cant,@prov)",parameters,elements))
                 {   
                     MessageBox.Show("EL Item no pudo ser agregado", "Google LLC", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);

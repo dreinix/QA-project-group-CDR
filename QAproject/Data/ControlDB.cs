@@ -25,288 +25,297 @@ namespace QAproject.Data
             String conectionString = @"Data source = (localdb)\v11.0 ; AttachDbFilename=" + _location + "; MultipleActiveResultSets=True; Integrated Security=SSPI";
         }
 
-            private void Open()
+        private void Open()
+        {
+            try
             {
-                try
-                {
-                    con.Close();
-                    //String path = @"Data source = (localDB)\MSSQLLocalDB ; AttachDbFilename=" + _location + ";Integrated Security=SSPI";
-                    String conectionString = @"Data source = (localDB)\MSSQLLocalDB ; AttachDbFilename=" + _location + ";Integrated Security=SSPI";
-                    //String conectionString = "Data Source = 148.103.246.141,1433;Initial Catalog = ProjectDataBase; User ID=visit;Password=visit";
-                    con.ConnectionString = conectionString;
-                    con.Open();
-                }
-                catch (Exception ex) { MessageBox.Show(ex.Message); };
+                con.Close();
+                //String path = @"Data source = (localDB)\MSSQLLocalDB ; AttachDbFilename=" + _location + ";Integrated Security=SSPI";
+                String conectionString = @"Data source = (localDB)\MSSQLLocalDB ; AttachDbFilename=" + _location + ";Integrated Security=SSPI";
+                //String conectionString = "Data Source = 148.103.246.141,1433;Initial Catalog = ProjectDataBase; User ID=visit;Password=visit";
+                con.ConnectionString = conectionString;
+                con.Open();
             }
-            public void Close() => con.Close();
-            /*public List<SqlDataReader> Buscar(string _query)
+            catch (Exception ex) { MessageBox.Show(ex.Message); };
+        }
+        public void Close() => con.Close();
+
+        public List<string> Buscar(string _query)
+        {
+            Open();
+            List<string> returnList = new List<string>();
+            try
             {
-                Open();
-                List<SqlDataReader> returnList = new List<SqlDataReader>();
-                using (cmd = new SqlCommand(_query, con))
+                using(cmd = new SqlCommand(_query, con))
                 {
                     SqlDataReader reader = cmd.ExecuteReader();
                     while (reader.Read())
                     {
-                        returnList.Add(reader);
+                        returnList.Add(reader[0].ToString());
                     }
-                    Close();
+                }
+            }catch(Exception ex)
+            {
+                Console.WriteLine(ex.Message);
+                MessageBox.Show("Error al recolectar la información");
+            }
+            Close();
+            return returnList;
+                
+        }
+        public List<string[]> Buscar(string _query, string[] _parameters, string[] _elements, int _elementsReturned)
+        {   
+            
+
+            List<string[]> returnList = new List<string[]>();
+            try
+            {
+                Open();
+                using (cmd = new SqlCommand(_query, con))
+                {
+                    for (int i = 0; i < _elements.Length; i++)
+                    {
+                        cmd.Parameters.AddWithValue(_parameters[i], _elements[i]);
+                    }
+
+                    SqlDataReader reader = cmd.ExecuteReader();
+                    while (reader.Read())
+                    {
+                        if (_elementsReturned == 0)
+                            _elementsReturned = reader.FieldCount;
+
+                        string[] elementos = new string[_elementsReturned];
+                            
+                        for (int i = 0; i < _elementsReturned; i++)
+                        {
+                            elementos[i] = reader[i].ToString();
+                        }
+                        returnList.Add(elementos);
+                    }
                     return returnList;
                 }
 
-            }*/
+            }
+            catch (Exception) { return returnList; }
 
-            public List<string> Buscar(string _query)
+        }
+            
+        public bool Buscar(string _query, string[] _parameters, string[] _word)
+        {
+            try
             {
                 Open();
-                List<string> returnList = new List<string>();
-                try
+                using (cmd = new SqlCommand(_query, con))
                 {
-                    using(cmd = new SqlCommand(_query, con))
+                    for (int i = 0; i < _word.Length; i++)
                     {
-                        SqlDataReader reader = cmd.ExecuteReader();
-                        while (reader.Read())
+                        cmd.Parameters.AddWithValue(_parameters[i], _word[i]);
+                    }
+                    SqlDataReader reader = cmd.ExecuteReader();
+                    while (reader.Read())
+                    {
+                        int founded = 0;
+                        for (int i = 0; i < reader.FieldCount; i++)
                         {
-                            returnList.Add(reader[0].ToString());
+                            for (int a = 0; a < _word.Count(); a++)
+                            {
+                                if (reader[i].ToString() == _word[a])
+                                {
+                                    founded += 1;
+                                }
+                            }
+
+                        }
+                        if (founded == _word.Count())
+                        {
+                            reader.Close();
+                            return true;
                         }
                     }
-                }catch(Exception ex)
-                {
-                    Console.WriteLine(ex.Message);
-                    MessageBox.Show("Error al recolectar la información");
+                    reader.Close();
                 }
                 Close();
-                return returnList;
-                
+                return false;
             }
-            public List<string[]> Buscar(string _query, string[] _parameters, string[] _elements, int _elementsReturned)
+            catch (Exception) { return false; }
+
+
+        }
+        public string BuscarElemento(string _query, string[] _parameters, string[] _word)
+        {
+            string value = "No encontrado";
+            try
             {
-                List<string[]> returnList = new List<string[]>();
-                try
+                Open();
+                using (cmd = new SqlCommand(_query, con))
                 {
-                    Open();
-                    using (cmd = new SqlCommand(_query, con))
+                    for (int i = 0; i < _word.Length; i++)
                     {
-                        for (int i = 0; i < _elements.Length; i++)
-                        {
-                            cmd.Parameters.AddWithValue(_parameters[i], _elements[i]);
-                        }
-
-                        SqlDataReader reader = cmd.ExecuteReader();
-                        while (reader.Read())
-                        {
-                            string[] elementos = new string[_elementsReturned];
-                            for (int i = 0; i < _elementsReturned; i++)
-                            {
-                                elementos[i] = reader[i].ToString();
-                            }
-                            returnList.Add(elementos);
-                        }
-                        return returnList;
+                        cmd.Parameters.AddWithValue(_parameters[i], _word[i]);
                     }
+                    SqlDataReader reader = cmd.ExecuteReader();
+                    while (reader.Read())
+                    {
+                        value = reader[0].ToString();
 
+                    }
+                    reader.Close();
                 }
-                catch (Exception) { return returnList; }
-
+                Close();
+                return value;
             }
-            
-            public bool Buscar(string _query, string[] _parameters, string[] _word)
-            {
-                try
-                {
-                    Open();
-                    using (cmd = new SqlCommand(_query, con))
-                    {
-                        for (int i = 0; i < _word.Length; i++)
-                        {
-                            cmd.Parameters.AddWithValue(_parameters[i], _word[i]);
-                        }
-                        SqlDataReader reader = cmd.ExecuteReader();
-                        while (reader.Read())
-                        {
-                            int founded = 0;
-                            for (int i = 0; i < reader.FieldCount; i++)
-                            {
-                                for (int a = 0; a < _word.Count(); a++)
-                                {
-                                    if (reader[i].ToString() == _word[a])
-                                    {
-                                        founded += 1;
-                                    }
-                                }
+            catch (Exception) { return value; }
 
-                            }
-                            if (founded == _word.Count())
-                            {
-                                reader.Close();
-                                return true;
-                            }
-                        }
-                        reader.Close();
+
+        }
+        public bool Insertar(string _query, string[] _parameters, string[] _word)
+        {
+            try
+            {
+                Open();
+                using (cmd = new SqlCommand(_query, con))
+                {
+                    for (int i = 0; i < _parameters.Length; i++)
+                    {
+                        cmd.Parameters.AddWithValue(_parameters[i], _word[i]);
                     }
-                    Close();
-                    return false;
+                    cmd.ExecuteNonQuery();
                 }
-                catch (Exception) { return false; }
-
-
+                Close();
+                return true;
             }
-            public string BuscarElemento(string _query, string[] _parameters, string[] _word)
+            catch (Exception ex) { MessageBox.Show(ex.Message); return false; }
+        }
+        public bool Insertar(string _query, string[] _parameters, string[] _word, MemoryStream image)
+        {
+            try
             {
-                string value = "No encontrado";
-                try
+                Open();
+                using (cmd = new SqlCommand(_query, con))
                 {
-                    Open();
-                    using (cmd = new SqlCommand(_query, con))
+                    for (int i = 0; i < _word.Length; i++)
                     {
-                        for (int i = 0; i < _word.Length; i++)
-                        {
-                            cmd.Parameters.AddWithValue(_parameters[i], _word[i]);
-                        }
-                        SqlDataReader reader = cmd.ExecuteReader();
-                        while (reader.Read())
-                        {
-                            value = reader[0].ToString();
-
-                        }
-                        reader.Close();
+                        cmd.Parameters.AddWithValue(_parameters[i], _word[i]);
                     }
-                    Close();
-                    return value;
+                    cmd.Parameters.AddWithValue(_parameters[_parameters.Length - 1], image.GetBuffer());
+                    cmd.ExecuteNonQuery();
                 }
-                catch (Exception) { return value; }
-
-
+                Close();
+                return true;
             }
-            public bool Insertar(string _query, string[] _parameters, string[] _word)
+            catch (Exception ex) { MessageBox.Show(ex.Message); return false; }
+
+
+        }
+        public bool Eliminar(string _query, string[] _parameters, string[] _elements)
+        {
+            try
             {
-                try
+                Open();
+                using (cmd = new SqlCommand(_query, con))
                 {
-                    Open();
-                    using (cmd = new SqlCommand(_query, con))
+                    for (int i = 0; i < _parameters.Count(); i++)
                     {
-                        for (int i = 0; i < _parameters.Length; i++)
-                        {
-                            cmd.Parameters.AddWithValue(_parameters[i], _word[i]);
-                        }
-                        cmd.ExecuteNonQuery();
+                        cmd.Parameters.AddWithValue(_parameters[i], _elements[i]);
                     }
+                    cmd.ExecuteNonQuery();
                     Close();
                     return true;
+
                 }
-                catch (Exception ex) { MessageBox.Show(ex.Message); return false; }
             }
-            public bool Insertar(string _query, string[] _parameters, string[] _word, MemoryStream image)
+            catch (Exception ex) { MessageBox.Show(ex.Message); return false; }
+        }
+        public DataTable ObtenerTabla(string _query)
+        {
+            try
             {
-                try
+                Open();
+                using (SqlDataAdapter dataAdapter = new SqlDataAdapter())
                 {
-                    Open();
-                    using (cmd = new SqlCommand(_query, con))
-                    {
-                        for (int i = 0; i < _word.Length; i++)
-                        {
-                            cmd.Parameters.AddWithValue(_parameters[i], _word[i]);
-                        }
-                        cmd.Parameters.AddWithValue(_parameters[_parameters.Length - 1], image.GetBuffer());
-                        cmd.ExecuteNonQuery();
-                    }
-                    Close();
-                    return true;
+                    dataAdapter.SelectCommand = new SqlCommand(_query, con);
+                    SqlCommandBuilder commandBuilder = new SqlCommandBuilder(dataAdapter);
+                    // Populate a new data table and bind it to the BindingSource.
+                    DataTable table = new DataTable();
+                    table.Locale = System.Globalization.CultureInfo.InvariantCulture;
+                    dataAdapter.Fill(table);
+                    return table;
                 }
-                catch (Exception ex) { MessageBox.Show(ex.Message); return false; }
 
 
             }
-            public bool Eliminar(string _query, string[] _parameters, string[] _elements)
+            catch (Exception) { return null; }
+
+        }
+        public DataTable ObtenerTabla(string _query, string[] _parameters, string[] _word)
+        {
+            try
             {
-                try
+                Open();
+                using (SqlDataAdapter dataAdapter = new SqlDataAdapter())
                 {
-                    Open();
-                    using (cmd = new SqlCommand(_query, con))
+                    dataAdapter.SelectCommand = new SqlCommand(_query, con);
+                    for (int i = 0; i < _parameters.Length; i++)
                     {
-                        for (int i = 0; i < _parameters.Count(); i++)
-                        {
-                            cmd.Parameters.AddWithValue(_parameters[i], _elements[i]);
-                        }
-                        cmd.ExecuteNonQuery();
-                        Close();
-                        return true;
-
+                        dataAdapter.SelectCommand.Parameters.AddWithValue(_parameters[i], _word[i]);
                     }
+                    SqlCommandBuilder commandBuilder = new SqlCommandBuilder(dataAdapter);
+                    // Populate a new data table and bind it to the BindingSource.
+                    DataTable table = new DataTable();
+                    table.Locale = System.Globalization.CultureInfo.InvariantCulture;
+                    dataAdapter.Fill(table);
+                    return table;
                 }
-                catch (Exception ex) { MessageBox.Show(ex.Message); return false; }
+
+
             }
-            public DataTable ObtenerTabla(string _query)
+            catch (Exception) { return null; }
+
+        }
+        public DataTable ActualizarTabla(string _query, string[] _parameters, string[] _word)
+        {
+            try
             {
-                try
+                Open();
+                using (SqlDataAdapter dataAdapter = new SqlDataAdapter())
                 {
-                    Open();
-                    using (SqlDataAdapter dataAdapter = new SqlDataAdapter())
+                    dataAdapter.SelectCommand = new SqlCommand(_query, con);
+                    for (int i = 0; i < _parameters.Length; i++)
                     {
-                        dataAdapter.SelectCommand = new SqlCommand(_query, con);
-                        SqlCommandBuilder commandBuilder = new SqlCommandBuilder(dataAdapter);
-                        // Populate a new data table and bind it to the BindingSource.
-                        DataTable table = new DataTable();
-                        table.Locale = System.Globalization.CultureInfo.InvariantCulture;
-                        dataAdapter.Fill(table);
-                        return table;
+                        dataAdapter.SelectCommand.Parameters.AddWithValue(_parameters[i], _word[i]);
                     }
-
-
+                    SqlCommandBuilder commandBuilder = new SqlCommandBuilder(dataAdapter);
+                    // Populate a new data table and bind it to the BindingSource.
+                    DataTable table = new DataTable();
+                    table.Locale = System.Globalization.CultureInfo.InvariantCulture;
+                    dataAdapter.Fill(table);
+                    return table;
                 }
-                catch (Exception) { return null; }
+
 
             }
-            public DataTable ObtenerTabla(string _query, string[] _parameters, string[] _word)
+            catch (Exception) { return null; }
+
+        }
+
+        public bool Update(string _query, string[] _parameters, string[] _elements)
+        {
+            try
             {
-                try
+                Open();
+                using (cmd = new SqlCommand(_query, con))
                 {
-                    Open();
-                    using (SqlDataAdapter dataAdapter = new SqlDataAdapter())
+                    for (int i = 0; i < _elements.Length; i++)
                     {
-                        dataAdapter.SelectCommand = new SqlCommand(_query, con);
-                        for (int i = 0; i < _parameters.Length; i++)
-                        {
-                            dataAdapter.SelectCommand.Parameters.AddWithValue(_parameters[i], _word[i]);
-                        }
-                        SqlCommandBuilder commandBuilder = new SqlCommandBuilder(dataAdapter);
-                        // Populate a new data table and bind it to the BindingSource.
-                        DataTable table = new DataTable();
-                        table.Locale = System.Globalization.CultureInfo.InvariantCulture;
-                        dataAdapter.Fill(table);
-                        return table;
+                        cmd.Parameters.AddWithValue(_parameters[i], _elements[i]);
                     }
-
-
+                    cmd.ExecuteNonQuery();
                 }
-                catch (Exception) { return null; }
-
+                Close();
+                return true;
+               
             }
-            public DataTable ActualizarTabla(string _query, string[] _parameters, string[] _word)
-            {
-                try
-                {
-                    Open();
-                    using (SqlDataAdapter dataAdapter = new SqlDataAdapter())
-                    {
-                        dataAdapter.SelectCommand = new SqlCommand(_query, con);
-                        for (int i = 0; i < _parameters.Length; i++)
-                        {
-                            dataAdapter.SelectCommand.Parameters.AddWithValue(_parameters[i], _word[i]);
-                        }
-                        SqlCommandBuilder commandBuilder = new SqlCommandBuilder(dataAdapter);
-                        // Populate a new data table and bind it to the BindingSource.
-                        DataTable table = new DataTable();
-                        table.Locale = System.Globalization.CultureInfo.InvariantCulture;
-                        dataAdapter.Fill(table);
-                        return table;
-                    }
-
-
-                }
-                catch (Exception) { return null; }
-
-            }
-        
+            catch (Exception ex) { Console.WriteLine(ex.Message); Close(); return false;  }
+        }
     }
 }

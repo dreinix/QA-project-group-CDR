@@ -1,4 +1,5 @@
-﻿using System;
+﻿using QAproject.Data;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -11,24 +12,30 @@ using System.Windows.Forms;
 namespace QAproject
 {
     public partial class ChangeStock : Material
-    {
-        public ChangeStock()
+    {   
+        private Utility.Item it;
+        public ChangeStock(Utility.Item item)
         {
             InitializeComponent();
+            it = item;
         }
 
         private void ChangeStock_Load(object sender, EventArgs e)
         {
-            newTextBox.Focus();
+            TxtNewCant.Focus();
+            TxtName.Text = it.Name;
+            TxtCant.Text = it.Count.ToString();
+            TxtProv.Text = it.Provider;
+
         }
 
         private void materialRaisedButton1_Click(object sender, EventArgs e)
         {
-            int x = Convert.ToInt32(CountTextBox.Text);
+            int x = Convert.ToInt32(TxtCant.Text);
             int y = 0;
             try
             {
-                 y = Convert.ToInt32(CountTextBox.Text);
+                 y = Convert.ToInt32(TxtCant.Text);
             }
             catch
             {
@@ -42,18 +49,18 @@ namespace QAproject
             else
             {
                 MessageBox.Show("Error verificar Contenido", "Google LLC", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                newTextBox.Text = "";
-                newTextBox.Focus();
+                TxtNewCant.Text = "";
+                TxtNewCant.Focus();
             }
         }
 
         private void materialRaisedButton2_Click(object sender, EventArgs e)
         {
-            int x = Convert.ToInt32(CountTextBox.Text);
+            int x = Convert.ToInt32(TxtCant.Text);
             int y = 0;
             try
             {
-                y = Convert.ToInt32(CountTextBox.Text);
+                y = Convert.ToInt32(TxtCant.Text);
             }
             catch
             {
@@ -67,14 +74,30 @@ namespace QAproject
             else
             {
                 MessageBox.Show("Error verificar Contenido", "Google LLC", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                newTextBox.Text = "";
-                newTextBox.Focus();
+                TxtNewCant.Text = "";
+                TxtNewCant.Focus();
             }
         }
 
         private void ProveedorTextBox_Click(object sender, EventArgs e)
         {
 
+        }
+
+        private void MaterialRaisedButton4_Click(object sender, EventArgs e)
+        {
+            ControlDB control = new ControlDB(ControlDB.cPath, "dbQA.mdf");
+            string[] para = { "@cant", "@id" };
+            string[] element = { TxtNewCant.Text, it.ID.ToString() };
+            if(!control.Update("Update [Item] set [count]=@cant where [Id_Item]=@id", para, element))
+            {
+                
+                MessageBox.Show("No se pudieron guardar los cambios");
+                return;
+            }
+            TxtCant.Text = TxtNewCant.Text;
+            TxtNewCant.Clear();
+            MessageBox.Show("Cambios guardados!");
         }
     }
 }

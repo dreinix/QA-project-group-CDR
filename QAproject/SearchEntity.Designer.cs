@@ -30,7 +30,7 @@
         {
             this.materialRaisedButton2 = new MaterialSkin.Controls.MaterialRaisedButton();
             this.materialRaisedButton1 = new MaterialSkin.Controls.MaterialRaisedButton();
-            this.searchTextbox = new MaterialSkin.Controls.MaterialSingleLineTextField();
+            this.TxtSearch = new MaterialSkin.Controls.MaterialSingleLineTextField();
             this.dataGridView1 = new System.Windows.Forms.DataGridView();
             this.materialRaisedButton3 = new MaterialSkin.Controls.MaterialRaisedButton();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
@@ -68,28 +68,29 @@
             this.materialRaisedButton1.UseVisualStyleBackColor = true;
             this.materialRaisedButton1.Click += new System.EventHandler(this.materialRaisedButton1_Click_1);
             // 
-            // searchTextbox
+            // TxtSearch
             // 
-            this.searchTextbox.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            this.TxtSearch.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
-            this.searchTextbox.BackColor = System.Drawing.Color.White;
-            this.searchTextbox.Depth = 0;
-            this.searchTextbox.Font = new System.Drawing.Font("Microsoft Sans Serif", 15F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.searchTextbox.Hint = "";
-            this.searchTextbox.Location = new System.Drawing.Point(13, 91);
-            this.searchTextbox.Margin = new System.Windows.Forms.Padding(4);
-            this.searchTextbox.MaxLength = 32767;
-            this.searchTextbox.MouseState = MaterialSkin.MouseState.HOVER;
-            this.searchTextbox.Name = "searchTextbox";
-            this.searchTextbox.PasswordChar = '\0';
-            this.searchTextbox.SelectedText = "";
-            this.searchTextbox.SelectionLength = 0;
-            this.searchTextbox.SelectionStart = 0;
-            this.searchTextbox.Size = new System.Drawing.Size(228, 23);
-            this.searchTextbox.TabIndex = 38;
-            this.searchTextbox.TabStop = false;
-            this.searchTextbox.UseSystemPasswordChar = false;
+            this.TxtSearch.BackColor = System.Drawing.Color.White;
+            this.TxtSearch.Depth = 0;
+            this.TxtSearch.Font = new System.Drawing.Font("Microsoft Sans Serif", 15F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.TxtSearch.Hint = "";
+            this.TxtSearch.Location = new System.Drawing.Point(13, 91);
+            this.TxtSearch.Margin = new System.Windows.Forms.Padding(4);
+            this.TxtSearch.MaxLength = 32767;
+            this.TxtSearch.MouseState = MaterialSkin.MouseState.HOVER;
+            this.TxtSearch.Name = "TxtSearch";
+            this.TxtSearch.PasswordChar = '\0';
+            this.TxtSearch.SelectedText = "";
+            this.TxtSearch.SelectionLength = 0;
+            this.TxtSearch.SelectionStart = 0;
+            this.TxtSearch.Size = new System.Drawing.Size(228, 23);
+            this.TxtSearch.TabIndex = 38;
+            this.TxtSearch.TabStop = false;
+            this.TxtSearch.UseSystemPasswordChar = false;
+            this.TxtSearch.TextChanged += new System.EventHandler(this.TxtSearch_TextChanged);
             // 
             // dataGridView1
             // 
@@ -127,7 +128,7 @@
             this.Controls.Add(this.materialRaisedButton3);
             this.Controls.Add(this.materialRaisedButton2);
             this.Controls.Add(this.materialRaisedButton1);
-            this.Controls.Add(this.searchTextbox);
+            this.Controls.Add(this.TxtSearch);
             this.Controls.Add(this.dataGridView1);
             this.MaximizeBox = false;
             this.Name = "SearchEntity";
@@ -141,7 +142,7 @@
 
         #endregion
         private System.Windows.Forms.DataGridView dataGridView1;
-        private MaterialSkin.Controls.MaterialSingleLineTextField searchTextbox;
+        private MaterialSkin.Controls.MaterialSingleLineTextField TxtSearch;
         private MaterialSkin.Controls.MaterialRaisedButton materialRaisedButton1;
         private MaterialSkin.Controls.MaterialRaisedButton materialRaisedButton2;
         private MaterialSkin.Controls.MaterialRaisedButton materialRaisedButton3;

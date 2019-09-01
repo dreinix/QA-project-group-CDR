@@ -1,4 +1,5 @@
-﻿using System;
+﻿using QAproject.Data;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -19,7 +20,7 @@ namespace QAproject
 
         private void AddUser_Load(object sender, EventArgs e)
         {
-            userTextbox.Focus();
+            TxtUsername.Focus();
           
         }
 
@@ -40,19 +41,56 @@ namespace QAproject
 
         private void materialRaisedButton1_Click(object sender, EventArgs e)
         {
-            if (passwordTextbox.Text != repeatPasswordTextbox.Text)
+            if (TxtPsw.Text != TxtRepeatPsw.Text)
             {
                 MessageBox.Show("Contraseña diferente", "Google LLC", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                passwordTextbox.Text = "";
-                repeatPasswordTextbox.Text = "";
-                passwordTextbox.Focus();
+                TxtPsw.Text = "";
+                TxtRepeatPsw.Text = "";
+                TxtPsw.Focus();
                 return;
             }
+
+            try
+            {
+                if (TxtPsw.Text == TxtUsername.Text)
+                {
+                    MessageBox.Show("El usuario y al contraseña no pueden ser iguales");
+                    TxtUsername.Clear();
+                    TxtPsw.Clear();
+                    TxtRepeatPsw.Clear();
+                    comboBox1.SelectedIndex = 0;
+                    return;
+                }
+                ControlDB DBControl = new ControlDB(ControlDB.cPath, "dbQA.mdf");
+                string[] parameters = { "@name", "@Username", "@pass", "cat" };
+                string[] elements = { TxtName.Name, TxtUsername.Text, TxtPsw.Text, comboBox1.SelectedIndex.ToString() };
+                if (DBControl.Buscar("Select * from [User] where Username=@userName", parameters, elements))
+                {
+                    MessageBox.Show("El usuario ya existe");
+                    TxtUsername.Clear();
+                    TxtPsw.Clear();
+                    
+                    return;
+                }
+                if (DBControl.Insertar("insert into [User] values(@Name,@userName,@pass,@cat)", parameters, elements))
+                {   
+                    //MessageBox.Show("Usuario agregado");
+                }
+                else
+                {
+                    MessageBox.Show("El usuario no pudo ser agregado");
+                    DBControl.Close();
+                    return;
+                }
+                DBControl.Close();
+            }
+            catch (Exception)
+            {
+                MessageBox.Show("Por favor, verifique los datos");
+            }
+
             // Despues de Agregar Usuario
             MessageBox.Show("Usuario agregado Correctamente", "Google LLC", MessageBoxButtons.OK, MessageBoxIcon.Information);
-            Login a = new Login();
-            a.ShowDialog();
-            this.Close();
         }
 
         private void userTextbox_KeyDown(object sender, KeyEventArgs e)

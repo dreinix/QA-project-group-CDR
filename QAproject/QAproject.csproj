@@ -119,6 +119,8 @@
     <Compile Include="SearchEntity.Designer.cs">
       <DependentUpon>SearchEntity.cs</DependentUpon>
     </Compile>
+    <Compile Include="Utility\Item.cs" />
+    <Compile Include="Utility\Provider.cs" />
     <EmbeddedResource Include="Stock\AddItem.resx">
       <DependentUpon>AddItem.cs</DependentUpon>
     </EmbeddedResource>

@@ -134,8 +134,6 @@ namespace QAproject
 
         private void Login_Load(object sender, EventArgs e)
         {
-            materialRaisedButton1.Visible = false;
-            materialRaisedButton2.Visible = false;
         }
 
         private void MaterialSingleLineTextField2_KeyPress(object sender, KeyPressEventArgs e)
@@ -183,16 +181,10 @@ namespace QAproject
                     return;
                 }
                 if (DBControl.Insertar("insert into [User] values(@Name,@userName,@pass,@cat)", parameters, elements))
-                {   /*
-                    string[] para = { "@id" };
-                    string[] val = { System.Security.Principal.WindowsIdentity.GetCurrent().Name.ToString() };
-                    int activos = int.Parse(DBControl.BuscarElemento("select [registros] from Activos where [ID] = @id", para, val));
-                    para = new string[] { "@id", "@nums" };
-                    string[] nums = { System.Security.Principal.WindowsIdentity.GetCurrent().Name.ToString(), (++activos).ToString(), };
-                    DBControl.Insertar("update [Activos] set [registros]=@nums where [id]=@id", para, nums);
-                    */
+                {   
+
                     MessageBox.Show("Usuario agregado");
-                    //this.Close();
+
                 }
                 else
                 {
@@ -222,7 +214,7 @@ namespace QAproject
 
         private void materialRaisedButton2_Click_1(object sender, EventArgs e)
         {
-
+            AddUser addUser = new AddUser();
         }
 
         private void materialRaisedButton3_Click(object sender, EventArgs e)
