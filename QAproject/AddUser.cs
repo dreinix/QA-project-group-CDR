@@ -20,7 +20,7 @@ namespace QAproject
 
         private void AddUser_Load(object sender, EventArgs e)
         {
-            TxtUsername.Focus();
+            TxtName.Focus();
           
         }
 
@@ -99,9 +99,11 @@ namespace QAproject
                 comboBox1.Focus();
         }
 
-        private void comboBox1_SelectedIndexChanged(object sender, EventArgs e)
+        private void materialRaisedButton2_Click(object sender, EventArgs e)
         {
-            
+            Login a = new Login();
+            a.ShowDialog();
+            this.Close();
         }
     }
 }

@@ -10,23 +10,19 @@ using System.Windows.Forms;
 
 namespace QAproject
 {
-    public partial class Main : Material
+    public partial class MainPage : Material
     {
         string userCat;
-        public Main(string _userCat)
+        public MainPage(string _userCat)
         {
             InitializeComponent();
             userCat = _userCat;
 
             if (userCat == "Adm" || userCat == "Dev")
-            {
-                MessageBox.Show("Admin");
-
-            }
+                MessageBox.Show("Acceso de Administrador", "Google LLC", MessageBoxButtons.OK, MessageBoxIcon.Information); 
             else
-            {
-                MessageBox.Show("Cont");
-            }
+                MessageBox.Show("Dirigiendose al Menu Principal", "Google LLC", MessageBoxButtons.OK,MessageBoxIcon.Information);
+        
             this.Sizable = true;
             this.MinimizeBox = false;
             this.MaximizeBox = false;
@@ -37,36 +33,35 @@ namespace QAproject
 
         }
 
-        private void button1_Click(object sender, EventArgs e)
-        {
-            Material a = new Material();
-            a.Show();
-            this.Hide();
-        }
+       
 
         private void materialFlatButton2_Click(object sender, EventArgs e)
         {
             AddProvider prov = new AddProvider();
             prov.ShowDialog();
+            this.Close();
 
         }
 
         private void materialFlatButton1_Click(object sender, EventArgs e)
         {
             AddItem itm = new AddItem();
-            itm.Show();
+            itm.ShowDialog();
+            this.Close();
         }
 
         private void MaterialFlatButton3_Click(object sender, EventArgs e)
         {
             SearchEntity entity = new SearchEntity();
-            entity.Show();
+            entity.ShowDialog();
+            this.Close();
         }
 
         private void MaterialFlatButton4_Click(object sender, EventArgs e)
         {
             AddUser addUser = new AddUser();
             addUser.ShowDialog();
+            this.Close();
         }
     }
 }

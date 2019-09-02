@@ -66,7 +66,6 @@ namespace QAproject.Data
         public List<string[]> Buscar(string _query, string[] _parameters, string[] _elements, int _elementsReturned)
         {   
             
-
             List<string[]> returnList = new List<string[]>();
             try
             {

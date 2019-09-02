@@ -39,13 +39,7 @@ namespace QAproject
                 TxtCompany.Focus();
         }
 
-        private void companyTextbox_KeyDown(object sender, KeyEventArgs e)
-        { 
-            /*
-            if (Keys.Enter == e.KeyCode)
-              */  
-        }
-
+   
         private void materialRaisedButton1_Click(object sender, EventArgs e)
         {
             ControlDB control = new ControlDB(ControlDB.cPath, "dbQA.mdf");
@@ -60,21 +54,24 @@ namespace QAproject
                     return;
                 }
 
-
             }
             catch (Exception ex)
             {
                 MessageBox.Show(ex.Message);
             };
-            // Paso despues de agregar
 
             TxtName.Clear();
             TxtDirection.Clear();
             TxtCompany.Clear();
             MessageBox.Show("Proveedor Agregado Correctamente", "Google LLC", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
             TxtName.Focus();
+        }
 
-            // Fin
+        private void materialRaisedButton2_Click(object sender, EventArgs e)
+        {
+            MainPage a = new MainPage("");
+            a.ShowDialog();
+            this.Close();
         }
     }
 }

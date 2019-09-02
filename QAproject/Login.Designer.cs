@@ -46,7 +46,7 @@
             this.BTLogIn.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
             this.BTLogIn.Depth = 0;
             this.BTLogIn.Icon = null;
-            this.BTLogIn.Location = new System.Drawing.Point(159, 402);
+            this.BTLogIn.Location = new System.Drawing.Point(227, 389);
             this.BTLogIn.MouseState = MaterialSkin.MouseState.HOVER;
             this.BTLogIn.Name = "BTLogIn";
             this.BTLogIn.Primary = true;
@@ -110,8 +110,6 @@
             this.TxtPsw.UseSystemPasswordChar = true;
             this.TxtPsw.Click += new System.EventHandler(this.materialSingleLineTextField2_Click);
             this.TxtPsw.KeyDown += new System.Windows.Forms.KeyEventHandler(this.MaterialSingleLineTextField2_KeyDown);
-            this.TxtPsw.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.MaterialSingleLineTextField2_KeyPress);
-            this.TxtPsw.Leave += new System.EventHandler(this.TxtPsw_Leave);
             // 
             // pictureBox2
             // 
@@ -169,7 +167,7 @@
             this.Controls.Add(this.TxtUserName);
             this.Controls.Add(this.pictureBox1);
             this.Controls.Add(this.BTLogIn);
-            this.Margin = new System.Windows.Forms.Padding(5, 5, 5, 5);
+            this.Margin = new System.Windows.Forms.Padding(5);
             this.MaximizeBox = false;
             this.Name = "Login";
             this.Text = "Google Sing-in";

@@ -48,8 +48,7 @@
             this.TxtName.Depth = 0;
             this.TxtName.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.TxtName.Hint = "";
-            this.TxtName.Location = new System.Drawing.Point(451, 187);
-            this.TxtName.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.TxtName.Location = new System.Drawing.Point(338, 152);
             this.TxtName.MaxLength = 32767;
             this.TxtName.MouseState = MaterialSkin.MouseState.HOVER;
             this.TxtName.Name = "TxtName";
@@ -57,7 +56,7 @@
             this.TxtName.SelectedText = "";
             this.TxtName.SelectionLength = 0;
             this.TxtName.SelectionStart = 0;
-            this.TxtName.Size = new System.Drawing.Size(299, 28);
+            this.TxtName.Size = new System.Drawing.Size(224, 23);
             this.TxtName.TabIndex = 14;
             this.TxtName.TabStop = false;
             this.TxtName.UseSystemPasswordChar = false;
@@ -70,11 +69,10 @@
             this.materialLabel3.Depth = 0;
             this.materialLabel3.Font = new System.Drawing.Font("Roboto", 11F);
             this.materialLabel3.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(222)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
-            this.materialLabel3.Location = new System.Drawing.Point(445, 149);
-            this.materialLabel3.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.materialLabel3.Location = new System.Drawing.Point(334, 121);
             this.materialLabel3.MouseState = MaterialSkin.MouseState.HOVER;
             this.materialLabel3.Name = "materialLabel3";
-            this.materialLabel3.Size = new System.Drawing.Size(153, 24);
+            this.materialLabel3.Size = new System.Drawing.Size(121, 19);
             this.materialLabel3.TabIndex = 13;
             this.materialLabel3.Text = "Nombre del item";
             // 
@@ -85,11 +83,10 @@
             this.materialLabel2.Depth = 0;
             this.materialLabel2.Font = new System.Drawing.Font("Roboto", 11F);
             this.materialLabel2.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(222)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
-            this.materialLabel2.Location = new System.Drawing.Point(444, 245);
-            this.materialLabel2.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.materialLabel2.Location = new System.Drawing.Point(333, 199);
             this.materialLabel2.MouseState = MaterialSkin.MouseState.HOVER;
             this.materialLabel2.Name = "materialLabel2";
-            this.materialLabel2.Size = new System.Drawing.Size(85, 24);
+            this.materialLabel2.Size = new System.Drawing.Size(68, 19);
             this.materialLabel2.TabIndex = 11;
             this.materialLabel2.Text = "Cantidad";
             // 
@@ -100,21 +97,19 @@
             this.materialLabel1.Depth = 0;
             this.materialLabel1.Font = new System.Drawing.Font("Roboto", 11F);
             this.materialLabel1.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(222)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
-            this.materialLabel1.Location = new System.Drawing.Point(445, 348);
-            this.materialLabel1.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.materialLabel1.Location = new System.Drawing.Point(334, 283);
             this.materialLabel1.MouseState = MaterialSkin.MouseState.HOVER;
             this.materialLabel1.Name = "materialLabel1";
-            this.materialLabel1.Size = new System.Drawing.Size(96, 24);
+            this.materialLabel1.Size = new System.Drawing.Size(77, 19);
             this.materialLabel1.TabIndex = 9;
             this.materialLabel1.Text = "Proveedor";
             // 
             // CBProveedor
             // 
             this.CBProveedor.FormattingEnabled = true;
-            this.CBProveedor.Location = new System.Drawing.Point(451, 394);
-            this.CBProveedor.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.CBProveedor.Location = new System.Drawing.Point(338, 320);
             this.CBProveedor.Name = "CBProveedor";
-            this.CBProveedor.Size = new System.Drawing.Size(297, 24);
+            this.CBProveedor.Size = new System.Drawing.Size(224, 21);
             this.CBProveedor.TabIndex = 17;
             // 
             // AgregarButtom
@@ -123,12 +118,11 @@
             this.AgregarButtom.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
             this.AgregarButtom.Depth = 0;
             this.AgregarButtom.Icon = null;
-            this.AgregarButtom.Location = new System.Drawing.Point(496, 455);
-            this.AgregarButtom.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.AgregarButtom.Location = new System.Drawing.Point(372, 370);
             this.AgregarButtom.MouseState = MaterialSkin.MouseState.HOVER;
             this.AgregarButtom.Name = "AgregarButtom";
             this.AgregarButtom.Primary = true;
-            this.AgregarButtom.Size = new System.Drawing.Size(99, 36);
+            this.AgregarButtom.Size = new System.Drawing.Size(83, 36);
             this.AgregarButtom.TabIndex = 18;
             this.AgregarButtom.Text = "Agregar";
             this.AgregarButtom.UseVisualStyleBackColor = true;
@@ -140,40 +134,40 @@
             this.CancelarButtom.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
             this.CancelarButtom.Depth = 0;
             this.CancelarButtom.Icon = null;
-            this.CancelarButtom.Location = new System.Drawing.Point(627, 455);
-            this.CancelarButtom.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.CancelarButtom.Location = new System.Drawing.Point(470, 370);
             this.CancelarButtom.MouseState = MaterialSkin.MouseState.HOVER;
             this.CancelarButtom.Name = "CancelarButtom";
             this.CancelarButtom.Primary = true;
-            this.CancelarButtom.Size = new System.Drawing.Size(109, 36);
+            this.CancelarButtom.Size = new System.Drawing.Size(91, 36);
             this.CancelarButtom.TabIndex = 19;
             this.CancelarButtom.Text = "Cancelar";
             this.CancelarButtom.UseVisualStyleBackColor = true;
+            this.CancelarButtom.Click += new System.EventHandler(this.CancelarButtom_Click);
             // 
             // pictureBox1
             // 
             this.pictureBox1.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox1.Image")));
-            this.pictureBox1.Location = new System.Drawing.Point(31, 116);
-            this.pictureBox1.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.pictureBox1.Location = new System.Drawing.Point(23, 94);
             this.pictureBox1.Name = "pictureBox1";
-            this.pictureBox1.Size = new System.Drawing.Size(392, 373);
+            this.pictureBox1.Size = new System.Drawing.Size(294, 303);
             this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
             this.pictureBox1.TabIndex = 20;
             this.pictureBox1.TabStop = false;
             // 
             // NUDCant
             // 
-            this.NUDCant.Location = new System.Drawing.Point(449, 299);
+            this.NUDCant.Location = new System.Drawing.Point(337, 243);
+            this.NUDCant.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.NUDCant.Name = "NUDCant";
-            this.NUDCant.Size = new System.Drawing.Size(180, 22);
+            this.NUDCant.Size = new System.Drawing.Size(135, 20);
             this.NUDCant.TabIndex = 21;
             // 
             // AddItem
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
-            this.ClientSize = new System.Drawing.Size(772, 554);
+            this.ClientSize = new System.Drawing.Size(579, 450);
             this.Controls.Add(this.NUDCant);
             this.Controls.Add(this.pictureBox1);
             this.Controls.Add(this.CancelarButtom);
@@ -183,7 +177,7 @@
             this.Controls.Add(this.materialLabel3);
             this.Controls.Add(this.materialLabel2);
             this.Controls.Add(this.materialLabel1);
-            this.Margin = new System.Windows.Forms.Padding(7, 6, 7, 6);
+            this.Margin = new System.Windows.Forms.Padding(5, 5, 5, 5);
             this.MaximizeBox = false;
             this.Name = "AddItem";
             this.Text = "Agregar Item";

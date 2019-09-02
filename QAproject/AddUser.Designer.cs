@@ -70,7 +70,7 @@
             this.TxtRepeatPsw.MaxLength = 32767;
             this.TxtRepeatPsw.MouseState = MaterialSkin.MouseState.HOVER;
             this.TxtRepeatPsw.Name = "TxtRepeatPsw";
-            this.TxtRepeatPsw.PasswordChar = '\0';
+            this.TxtRepeatPsw.PasswordChar = '*';
             this.TxtRepeatPsw.SelectedText = "";
             this.TxtRepeatPsw.SelectionLength = 0;
             this.TxtRepeatPsw.SelectionStart = 0;
@@ -89,7 +89,7 @@
             this.TxtPsw.MaxLength = 32767;
             this.TxtPsw.MouseState = MaterialSkin.MouseState.HOVER;
             this.TxtPsw.Name = "TxtPsw";
-            this.TxtPsw.PasswordChar = '\0';
+            this.TxtPsw.PasswordChar = '*';
             this.TxtPsw.SelectedText = "";
             this.TxtPsw.SelectionLength = 0;
             this.TxtPsw.SelectionStart = 0;
@@ -142,6 +142,7 @@
             this.materialRaisedButton2.TabIndex = 8;
             this.materialRaisedButton2.Text = "Cancel";
             this.materialRaisedButton2.UseVisualStyleBackColor = true;
+            this.materialRaisedButton2.Click += new System.EventHandler(this.materialRaisedButton2_Click);
             // 
             // pictureBox1
             // 
@@ -180,7 +181,6 @@
             this.comboBox1.Size = new System.Drawing.Size(224, 28);
             this.comboBox1.TabIndex = 11;
             this.comboBox1.Text = "Almacen";
-            this.comboBox1.SelectedIndexChanged += new System.EventHandler(this.comboBox1_SelectedIndexChanged);
             // 
             // TxtName
             // 

@@ -52,7 +52,7 @@ namespace QAproject
             if (DBControl.Buscar("select * from [User] where [Username]=@id and [Password]=@pass", parameters, elements))
             {
                 string cat = DBControl.BuscarElemento("select [Tipo] from [User] where [UserName]=@id and [Password]=@pass", parameters, elements);
-                Main mainPage = new Main(cat);
+                MainPage mainPage = new MainPage(cat);
                 this.Hide();
                 mainPage.ShowDialog();
                 this.Show();
@@ -67,38 +67,7 @@ namespace QAproject
         }
         private void materialRaisedButton2_Click(object sender, EventArgs e)
         {
-            
             IniciarSesion();
-            /*
-            Main a = new Main();
-
-            if (TxtUserName.Text == "admin")
-            {
-                if (TxtPsw.Text == "123")
-                {
-                    this.Hide();
-                    a.ShowDialog();
-                    this.Close();
-                    
-                }
-                else
-                {
-                    MessageBox.Show("Contraseña Invalidad", "Google LLC", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                    TxtPsw.Text = "";
-                    TxtPsw.Focus();
-                }
-            }
-            else
-            {
-                MessageBox.Show("Usuario Invalido", "Google LLC", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                TxtPsw.Text = "";
-                TxtUserName.Text = "";
-                TxtPsw.PasswordChar = '\0';
-                TxtPsw.Text = "Contraseña";
-                TxtUserName.Focus();
-             
-            }
-            */
         }
 
         private void materialSingleLineTextField2_Leave(object sender, EventArgs e)
@@ -136,20 +105,11 @@ namespace QAproject
         {
         }
 
-        private void MaterialSingleLineTextField2_KeyPress(object sender, KeyPressEventArgs e)
-        {
-            
-        }
-
         private void MaterialSingleLineTextField2_KeyDown(object sender, KeyEventArgs e)
         {
             if(Keys.Enter == e.KeyCode)
             {
                 IniciarSesion();
-                /*
-                Main a = new Main();
-                a.ShowDialog();
-                this.Close();*/
             }
         }
 

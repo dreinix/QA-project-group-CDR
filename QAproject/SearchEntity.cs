@@ -67,15 +67,13 @@ namespace QAproject
             dataGridView1.DataSource = itemData;
             dataGridView1.RefreshEdit();
         }
-        private void materialRaisedButton1_Click(object sender, EventArgs e)
-        {
-
-        }
-
+      
+  
         private void materialRaisedButton2_Click(object sender, EventArgs e)
         {
-            TxtSearch.Text = "";
-
+            MainPage a = new MainPage("");
+            a.ShowDialog();
+            this.Close();
         }
 
         private void materialRaisedButton1_Click_1(object sender, EventArgs e)

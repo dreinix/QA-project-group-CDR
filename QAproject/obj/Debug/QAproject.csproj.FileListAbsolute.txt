@@ -42,8 +42,6 @@ D:\INTEC\QA\QA-project-group-CDR\QAproject\bin\Debug\Data\dbQA.mdf
 D:\INTEC\QA\QA-project-group-CDR\QAproject\bin\Debug\Data\dbQA_log.ldf
 C:\Users\David\Desktop\QA\QA-project-group-CDR\QAproject\bin\Debug\Data\dbQA.mdf
 C:\Users\David\Desktop\QA\QA-project-group-CDR\QAproject\bin\Debug\Data\dbQA_log.ldf
-C:\Users\David\Desktop\QA\QA-project-group-CDR\QAproject\obj\Debug\QAproject.Main.resources
-C:\Users\David\Desktop\QA\QA-project-group-CDR\QAproject\obj\Debug\QAproject.Stock.CreateStock.resources
 C:\Users\David\Desktop\QA\QA-project-group-CDR\QAproject\obj\Debug\QAproject.AddItem.resources
 C:\Users\David\Desktop\QA\QA-project-group-CDR\QAproject\obj\Debug\QAproject.AddProvider.resources
 C:\Users\David\Desktop\QA\QA-project-group-CDR\QAproject\obj\Debug\QAproject.AddUser.resources
@@ -75,3 +73,4 @@ D:\INTEC\QA\QA-project-group-CDR\QAproject\obj\Debug\QAproject.AddProvider.resou
 D:\INTEC\QA\QA-project-group-CDR\QAproject\obj\Debug\QAproject.AddUser.resources
 D:\INTEC\QA\QA-project-group-CDR\QAproject\obj\Debug\QAproject.ChangeStock.resources
 D:\INTEC\QA\QA-project-group-CDR\QAproject\obj\Debug\QAproject.SearchEntity.resources
+C:\Users\David\Desktop\QA\QA-project-group-CDR\QAproject\obj\Debug\QAproject.MainPage.resources

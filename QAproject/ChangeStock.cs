@@ -41,10 +41,22 @@ namespace QAproject
             {
                 y = -1;
             }
-            if(y>x)
+            if (y != -1 && y > 0)
             {
-                // Base de dato actua
-                MessageBox.Show("Cambio realizado", "Google LLC", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                y += x;
+                string z = Convert.ToString(y);
+                ControlDB control = new ControlDB(ControlDB.cPath, "dbQA.mdf");
+                string[] para = { "@cant", "@id" };
+                string[] element = { z, it.ID.ToString() };
+                if (!control.Update("Update [Item] set [count]=@cant where [Id_Item]=@id", para, element))
+                {
+
+                    MessageBox.Show("No se pudieron guardar los cambios");
+                    return;
+                }
+                TxtCant.Text = TxtNewCant.Text;
+                TxtNewCant.Clear();
+                MessageBox.Show("Cambios guardados!", "Google LLC", MessageBoxButtons.OK, MessageBoxIcon.Information);
             }
             else
             {
@@ -66,10 +78,22 @@ namespace QAproject
             {
                 y = int.MaxValue-5;
             }
-            if (y < x)
+            if (y < x && y > 0)
             {
-                // Base de dato actua
-                MessageBox.Show("Cambio realizado", "Google LLC", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                x -= y;
+                string z = Convert.ToString(y);
+                ControlDB control = new ControlDB(ControlDB.cPath, "dbQA.mdf");
+                string[] para = { "@cant", "@id" };
+                string[] element = { z, it.ID.ToString() };
+                if (!control.Update("Update [Item] set [count]=@cant where [Id_Item]=@id", para, element))
+                {
+
+                    MessageBox.Show("No se pudieron guardar los cambios");
+                    return;
+                }
+                TxtCant.Text = TxtNewCant.Text;
+                TxtNewCant.Clear();
+                MessageBox.Show("Cambios guardados!", "Google LLC", MessageBoxButtons.OK, MessageBoxIcon.Information);
             }
             else
             {
@@ -79,25 +103,13 @@ namespace QAproject
             }
         }
 
-        private void ProveedorTextBox_Click(object sender, EventArgs e)
+        private void materialRaisedButton3_Click(object sender, EventArgs e)
         {
-
+            MainPage a = new MainPage("");
+            a.ShowDialog();
+            this.Close();
         }
 
-        private void MaterialRaisedButton4_Click(object sender, EventArgs e)
-        {
-            ControlDB control = new ControlDB(ControlDB.cPath, "dbQA.mdf");
-            string[] para = { "@cant", "@id" };
-            string[] element = { TxtNewCant.Text, it.ID.ToString() };
-            if(!control.Update("Update [Item] set [count]=@cant where [Id_Item]=@id", para, element))
-            {
-                
-                MessageBox.Show("No se pudieron guardar los cambios");
-                return;
-            }
-            TxtCant.Text = TxtNewCant.Text;
-            TxtNewCant.Clear();
-            MessageBox.Show("Cambios guardados!");
-        }
+      
     }
 }

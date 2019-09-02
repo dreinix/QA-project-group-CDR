@@ -83,5 +83,13 @@ namespace QAproject
             if (Keys.Enter == e.KeyCode)
                 NUDCant.Focus();
         }
+
+        private void CancelarButtom_Click(object sender, EventArgs e)
+        {
+            MainPage a = new MainPage("");
+            a.ShowDialog();
+            this.Close();
+            
+        }
     }
 }
