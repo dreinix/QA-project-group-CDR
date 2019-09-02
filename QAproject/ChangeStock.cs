@@ -29,6 +29,7 @@ namespace QAproject
 
         }
 
+
         private void materialRaisedButton1_Click(object sender, EventArgs e)
         {
             int x = Convert.ToInt32(TxtCant.Text);

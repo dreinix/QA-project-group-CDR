@@ -32,12 +32,6 @@ namespace QAproject
             ControlDB control = new ControlDB(ControlDB.cPath, "dbQA.mdf");
             BindingSource bs = new BindingSource();
             List<string[]> dataList = control.Buscar("select * from Proveedor",parameters,elements,4);
-            /*foreach (SqlDataReader datar in )
-            {   
-
-                datar.Read();
-                dataList.Add(datar.GetValue(0).ToString());
-            }*/
             List<string> ProvName = new List<string>();
             foreach(string[] value in dataList)
             {
@@ -68,14 +62,10 @@ namespace QAproject
             catch (Exception ex) {
                 MessageBox.Show(ex.Message);
             };
-            // Paso despues de agregar
-
             TxtName.Clear();
             NUDCant.Value = 1;
             MessageBox.Show("Item Agregado Correctamente", "Google LLC", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
             TxtName.Focus();
-
-            // Fin
         }
 
         private void NombreItem_KeyDown(object sender, KeyEventArgs e)
